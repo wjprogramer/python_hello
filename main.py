@@ -1,14 +1,13 @@
 # This is a sample Python script.
 import random
+from collections import deque
+
+# `import` intro: https://docs.python.org/zh-tw/3.12/tutorial/modules.html
+from src.sample_1 import hello_world
 
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
 
 def foo_1(foo1=5):
@@ -17,11 +16,11 @@ def foo_1(foo1=5):
 
 # 費式數列
 def fibonacci(nn):
-    a, b = 0, 1  # 多重賦值
+    aa, b = 0, 1  # 多重賦值
     print('Fibonacci:', end=' ')
-    while a < nn:
-        print(a, end=' ')
-        a, b = b, a + b  # 示範了等號的右項運算 (expression) 會先被計算 (evaluate)，賦值再發生。右項的運算式由左至右依序被計算。
+    while aa < nn:
+        print(aa, end=' ')
+        aa, b = b, aa + b  # 示範了等號的右項運算 (expression) 會先被計算 (evaluate)，賦值再發生。右項的運算式由左至右依序被計算。
     print()
 
 
@@ -32,7 +31,7 @@ class Point:
 
 
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    hello_world('PyCharm')
 
     # Number -----------------------------------------------------------------------------------------------------------
     num1 = 7 ** 3  # 343
@@ -59,9 +58,11 @@ if __name__ == '__main__':
     list_slicing_1 = squares[-3:]  # [9, 16, 25]
     list_1 = [1, 2, 3] + [4, 5, 6]  # [1, 2, 3, 4, 5, 6]
     list_1.append(7)
+    list_1.insert(1, 99)
     len(list_1)
     list_nested = [1, 2, 3, [4, 5, 6]]
     list_nested_elem = list_nested[3][0]  # 4
+    ## Other methods: list.remove(), list.pop(), list.clear(), list.index(), list.count(), list.sort(), list.reverse()
 
     ## Reference
     rgb = ['red', 'green', 'blue']
@@ -79,6 +80,30 @@ if __name__ == '__main__':
     ### result: ['a', 'b', 'f', 'g']
     letters[:] = []  # clear the list by replacing all the elements with an empty list
     ### result: []
+
+    ## Queue
+    queue_1 = deque(["Eric", "John", "Michael"])
+    queue_1.append("Terry")  # Terry arrives
+    queue_1.append("Graham")  # Graham arrives
+    queue_1.popleft()  # The first to arrive now leaves
+    ### result: 'Eric'
+    queue_1.popleft()  # The second to arrive now leaves
+    ### result: 'John'
+    ### queue_1: deque(['Michael', 'Terry', 'Graham'])  # Remaining queue in order of arrival
+
+    ## List Comprehensions（串列綜合運算）
+    squares_1 = list(map(lambda x: x ** 2, range(10)))
+    squares_2 = [x ** 2 for x in range(10)]
+
+    ## del
+    a = [-1, 1, 66.25, 333, 333, 1234.5]
+    del a[0]
+    ### result: [1, 66.25, 333, 333, 1234.5]
+    del a[2:4]
+    ### result: [1, 66.25, 1234.5]
+    del a[:]
+    ### result: []
+    del a  # del 也可以用來刪除整個變數
 
     # For Loop ---------------------------------------------------------------------------------------------------------
     ## range
@@ -153,6 +178,9 @@ if __name__ == '__main__':
         print('flow_control_num > 6')
 
     # Dictionary -------------------------------------------------------------------------------------------------------
+    dict([('sape', 4139), ('guido', 4127), ('jack', 4098)])  # {'sape': 4139, 'guido': 4127, 'jack': 4098}
+    dict(sape=4139, guido=4127, jack=4098)  # {'sape': 4139, 'guido': 4127, 'jack': 4098}
+    dict_1 = {x: x ** 2 for x in (2, 4, 6)}  # {2: 4, 4: 16, 6: 36}
 
     ## 在疊代一個集合的同時修改該集合的內容，很難獲取想要的結果。比較直觀的替代方式，是疊代該集合的副本，或建立一個新的集合
     ### Strategy 1:  Iterate over a copy
@@ -165,6 +193,30 @@ if __name__ == '__main__':
     for user, status in dict_users.items():
         if status == 'active':
             active_users[user] = status
+
+    for i, v in enumerate(['tic', 'tac', 'toe']):
+        print(i, v)
+    ### 0 tic
+    ### 1 tac
+    ### 2 toe
+
+    ## 要同時對兩個以上的序列作迴圈，可以將其以成對的方式放入 zip() 函式：
+    questions = ['name', 'quest', 'favorite color']
+    answers = ['lancelot', 'the holy grail', 'blue']
+    for q, a in zip(questions, answers):
+        print('What is your {0}?  It is {1}.'.format(q, a))
+    ### What is your name?  It is lancelot.
+    ### What is your quest?  It is the holy grail.
+    ### What is your favorite color?  It is blue.
+
+    for i in reversed(range(1, 10, 2)):
+        print(i)
+
+    basket = ['apple', 'orange', 'apple', 'pear', 'orange', 'banana']
+    for i in sorted(basket):  # 不會改變原本的序列
+        print(i)
+    for f in sorted(set(basket)):  # 使用 set() 來移除重複的元素
+        print(f)
 
     # match (其他語言通常會稱 switch) & case ------------------------------------------------------------------------------
     def http_error(res_status):
@@ -217,8 +269,8 @@ if __name__ == '__main__':
     Point(y=2, x=1)
 
     # Lambda -----------------------------------------------------------------------------------------------------------
-    def make_increment(a):
-        return lambda x: x + a
+    def make_increment(nnn):
+        return lambda x: x + nnn
 
 
     f = make_increment(42)
@@ -227,6 +279,24 @@ if __name__ == '__main__':
     pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
     pairs.sort(key=lambda pair: pair[1])
     # result: [(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
+
+    # Tuples & 序列 (Sequences) -----------------------------------------------------------------------------------------
+    tuple1 = 12345, 54321, 'hello!'
+    # tuple1[0] = 88888  # tuples are immutable
+    print(tuple1[0])  # 12345
+    nested_tuple_1 = tuple1, (1, 2, 3, 4, 5)
+    tuple_2 = ([1, 2, 3], [4, 5, 6])  # but they can contain mutable objects
+    tuple_elem1, tuple_elem2, tuple_elem3 = tuple1  # 序列拆解 sequence unpacking
+
+    # Sets 集合 ---------------------------------------------------------------------------------------------------------
+    basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+    print('orange' in basket)  # True
+    set_1 = set('abracadabra')  # {'a', 'r', 'b', 'c', 'd'} (unique letters in set_1)
+    set_2 = set('alacazam')  # {'a', 'l', 'm', 'c', 'z'} (unique letters in set_2)
+    print(set_1 - set_2)  # letters in set_1 but not in set_2, result: {'r', 'b', 'd'}
+    print(set_1 | set_2)  # letters in set_1 or set_2, result: {'a', 'c', 'r', 'd', 'b', 'm', 'z', 'l'}
+    print(set_1 & set_2)  # letters in both set_1 and set_2, result: {'a', 'c'}
+    print(set_1 ^ set_2)  # letters in set_1 or set_2 but not both, result: {'r', 'd', 'b', 'm', 'z', 'l'}
 
 
 # region function arguments --------------------------------------------------------------------------------------------
