@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef421bb3-eeb8-4f75-94ca-23a45bd90edd" name="Changes" comment="_">
-      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hello/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hello/hello_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hello/hello_2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/object/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/object/object_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/object/object_2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/object/object_3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/object/object_4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/python_hello.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python_hello.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -46,6 +54,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/wuja/ProjectsMy/python_hello&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
@@ -84,7 +93,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-d68999036c7f-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.14475.56" />
+        <option value="bundled-python-sdk-0509580d9d50-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.14494.241" />
       </set>
     </attachedChunks>
   </component>
@@ -107,6 +116,17 @@
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="_" />
